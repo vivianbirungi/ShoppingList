@@ -14,7 +14,7 @@ const App = () =>{
   ]);
   const addItem = (text) =>{
     if(!text){
-     Alert.alert('Error','Enter Item',{text:'Ok',onPress: () => console.log('Cancel Pressed'} )
+     Alert.alert('Error','Enter Item',{text:'Ok',onPress: () => console.log('Cancel Pressed' )})
     }
     else{
       setItems(prevItems => {
