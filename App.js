@@ -7,10 +7,10 @@ import AddItem from'./components/AddItem'
 
 const App = () =>{
   const [items, setItems] = useState([
-    {id: uuid(), text: 'MIlk'},
-    {id: uuid(), text: 'Eggs'},
-    {id: uuid(), text: 'Bread'},
-    {id: uuid(), text: 'Juice'}
+    {id: uuid(), text: 'MIlk', price: '$4.00', weight: '2kg'},
+    {id: uuid(), text: 'Eggs', price: '$4.00', weight: '2kg'},
+    {id: uuid(), text: 'Bread', price: '$4.00', weight: '2kg'},
+    {id: uuid(), text: 'Juice', price: '$4.00', weight: '2kg'}
   ]);
   const addItem = (text) =>{
     if(!text){
@@ -31,8 +31,13 @@ const App = () =>{
   return (
     <View style={styles.container}>
      <Header />
+     <View>
+    <Text>CheckOut</Text>
+  </View>
      <AddItem addItem = {addItem}/>
   <FlatList data={items} renderItem={({item}) => <ListItem item ={item} deleteItem = { deleteItem}/>}/>
+
+ 
     </View>
   )
 }

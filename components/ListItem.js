@@ -1,17 +1,23 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity,Body,  Card, CardItem,} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity,Body,  Card, CardItem, Image} from 'react-native'
 import Icon from 'react-native-vector-icons/dist/FontAwesome'
+import { genericTypeAnnotation } from '@babel/types';
 
 const ListItem = ({item, deleteItem}) =>{
   return (
     <TouchableOpacity style={[styles.listItem, styles.shadow1]}>
      <View style={styles.listItemView}>
      
-        <View style={{backgroundColor: 'powderblue', padding:10, flex:3}} ><Text>Two</Text></View>
-        <View style={{backgroundColor: 'skyblue',  padding:15, flex:2}} >
+        <View style={{backgroundColor: '#ebecf2',padding:5, margin: 5, alignItems:'center',  flex:3}} ><Image
+          style={{width: '95%', height: 80}}
+          source={require('./assets/banana.png')}
+        /></View>
+        <View style={{backgroundColor: 'transparent',  padding:15, flex:2}} >
         <Text style={styles.listItemText}>{item.text}</Text>
+        <Text style={styles.listItemweight}>{item.weight}</Text>
+        <Text style={styles.listItemprice}>{item.price}</Text>
         </View>
-        <View style={{backgroundColor: 'steelblue',  padding:20, flex:1, alignItems: 'flex-end'}} >
+        <View style={{backgroundColor: 'transparent',  padding:20, flex:1, alignItems: 'flex-end'}} >
         <Icon name="remove" size={20} color="firebrick" onPress ={()=> {deleteItem(item.id)}}/>
         </View>
       </View>
@@ -44,13 +50,13 @@ function elevationShadowStyle(elevation) {
 
 const styles = StyleSheet.create({
   listItem:{
-padding: 15,
+
 backgroundColor: 'white',
 
 borderRadius: 8,
 margin: 10,
 borderColor: 'gray',
-padding: 24,
+padding : 5
 
   },
   shadow1: elevationShadowStyle(15),
@@ -61,6 +67,14 @@ padding: 24,
 
   },
   listItemText:{
+    fontSize: 18,
+  },
+  listItemweight:{
+    fontSize:14,
+    color:'grey'
+  },
+  listItemprice:{
+    color:'red',
     fontSize: 18,
   },
   card: {
